@@ -9,6 +9,20 @@ Just because you can steal someone else money does not mean you should do it.
 
 Inspiration(great and funny talk at Defcon): https://github.com/ryancdotorg/brainflayer
 
+## Installation
+You need to have a working go(lang) environment in version >=1.9 and clone this repository. I can provide executable if there are requests.
+
+You first need to get the dependency:
+```
+$ go get github.com/btcsuite/btcutil/base58
+```
+
+Now you can go in the ```exec``` folder and build the executable:
+```
+$ cd exec/
+$ go build -zombie.go
+$ ./zombie
+```
 ##  Usage
 ```
 $ ./zombie -h
@@ -28,13 +42,15 @@ The goal is to generate password/keys when you know part of the target. This is 
 Hopefully next versions will support candidates from file generated with the tools like [crunch](https://tools.kali.org/password-attacks/crunch) or [john the ripper](https://tools.kali.org/password-attacks/john).
 
 ### Format
-First you need to fill the format file:
+First you need to fill the format file(see ```exec/format_example``` for an example):
 ```
-//read the format line and put it in an array of candidates
-//one time symbole between char candidates
-// ex: aEa3a  	=> [E 3]
+// read the format line and put it in an array of candidates
+// one time symbol between parts candidates
+// first symbol is a delimiter follow by a part
+// repeat the delimiter before each part
+// ex: aEa3  	=> [E 3]
 // ex: !g!d!e!p => [g d e p]
-// ex: ;k       => [k]
+// ex: %OUI%NON%YES%NO => [OUI NON YES NO]
 ```
 A useful feature that is missing is being able to set all the characters of the alphabet you are consider, using ```?```. The alphabets considered for addition are [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) and [BIP39 wordlists](https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md) mainly, and maybe hexadecimal/binary in case we want to play directly on bytes/bits level.
 

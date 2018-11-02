@@ -72,6 +72,9 @@ It will generate the candidates from the format, check if they are valid [wif](h
 The solution to the contest: [5JKPapJwgyEij3sxYRAEnixyiFgxqkVhgZXv9bWWknBexegx6tM](https://twitter.com/guessmybitcoin/status/781887409394974720)
 You can test it with the provided ```guesses``` file.
 
+## Public Key conversion
+**Disclaimer: Use this at your sole risk. This is not a tool to protect funds, it is a tool to hack/crack funds. If you insecurely generate your keys with this, an attacker can/will use this tool to empty your wallet. If you still want to use keys generated to hold your tokens, please try with small amounts first. Anyway, chances are that I can *NOT* help you recover your funds.**
+
 ## Next features
 * Number of candidates generated and size
 * Accept data generated from crunch/John
